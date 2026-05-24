@@ -27,17 +27,45 @@ animation: gradient 8s ease-in;
     100%{background-position:0% 50%;}
 }
 .res {
-  background-color: #4a8a4a;
-  position:absolute;
-  top: 138px;
- right: 618px;
- border-radius: 38px;
- width: 130px;
- height: 30px;
- z-index:4;
- color: white;
- font-style: italic;
+  background: #4a8a4a;
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+
+  width: 140px;
+  height: 38px;
+
+  position: absolute;
+  top: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  box-shadow:
+    0 4px 0 #2e6a2e,
+    inset 0 1px 2px rgba(255,255,255,0.15);
+
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    background 0.2s ease;
 }
+.res:hover {
+  background: #5a9e5a;
+  transform: translateX(-50%) scale(1.05);
+}
+.res:active {
+  transform: translateX(-50%) translateY(3px);
+  box-shadow:
+    0 1px 0 #2e6a2e,
+    inset 0 1px 2px rgba(255,255,255,0.1);
+}
+
+
+
 
 /* ── Wrapper ── */
 .calculator-wrapper {
@@ -127,19 +155,10 @@ animation: gradient 8s ease-in;
   display: flex;
   align-items: center;
   justify-content: center;
+
   animation: blink 4s infinite;
-}
-
-@keyframes blink {
-  0%, 45%, 47%, 100% {
-    transform: scaleY(1);
-  }
-
-  46% {
-    transform: scaleY(0.05);
-  }
-}
-  
+  overflow: hidden;
+}  
 
 .eye .cheek {
   position: absolute;
@@ -316,19 +335,83 @@ animation: gradient 8s ease-in;
 }
 
 #soundToggle {
-  position:absolute;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+
   padding: 8px 15px;
   border-radius: 20px;
   border: none;
   background-color: #4a7c4a;
   color: rgb(2, 23, 12);
   cursor: pointer;
-  margin-top: 10px;
-  top: 50px;
-  left:50px;
-    
 }
 
 #soundToggle:hover {
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+  body {
+    padding: 20px;
+    overflow-x: hidden;
+    align-items: flex-start;
+    padding-top: 70px;
+  }
+
+  .calculator-wrapper {
+    transform: scale(0.82);
+    transform-origin: top center;
+  }
+
+  .frog-head {
+    width: 280px;
+    height: 210px;
+  }
+
+  .button-pad {
+    width: 300px;
+    padding: 18px;
+  }
+
+  .buttons-grid {
+    gap: 8px;
+    padding: 14px;
+  }
+
+  .btn {
+    font-size: 1rem;
+  }
+
+  .display-screen {
+    width: 210px;
+    left: 24px;
+    top: 118px;
+    min-height: 42px;
+  }
+
+  #display {
+    font-size: 1.3rem;
+  }
+
+  .res {
+    width: 120px;
+    height: 34px;
+    font-size: 12px;
+    top: 128px;
+  }
+
+  .frogie {
+    width: 35px;
+    height: 35px;
+  }
+
+  #soundToggle {
+    top: 12px;
+    left: 12px;
+    font-size: 13px;
+    padding: 8px 12px;
+  }
 }
